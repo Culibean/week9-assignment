@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(90deg, #aed4eb, #3694c7);
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+  margin-bottom: 10px;
+  opacity: 80%;
+}
+
+.image {
+  border: solid 2px #aed4eb;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px #3694c7;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25 ease;
+}
+
+.h1 {
+  font-weight: 900;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 3rem;
+  margin-left: 3rem;
+}
