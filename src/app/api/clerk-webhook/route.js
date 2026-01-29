@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 
 export async function POST(req) {
