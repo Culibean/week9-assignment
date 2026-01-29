@@ -34,6 +34,6 @@ export async function POST(req) {
     return new Response("ok", { status: 200 });
   } catch (err) {
     console.error("Webhook error", err);
-    return new Response("Webhook error", { status: 400 });
+    return new Response(err.message, { status: 400 });
   }
 }
