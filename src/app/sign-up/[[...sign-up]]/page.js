@@ -6,7 +6,7 @@
 
 // this is the sign-up page
 import { SignUp } from "@clerk/nextjs";
-import { dark, neobrutalism } from "@clerk/themes";
+import { neobrutalism } from "@clerk/themes";
 
 export default function SignUpPage() {
   return (
