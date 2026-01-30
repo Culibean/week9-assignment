@@ -24,13 +24,3 @@ export default function SignUpPage() {
     </>
   );
 }
-// export default function SignUpPage() {
-//   return (
-//     <>
-//       {/* Clerk component*/}
-//       <form>
-//         <input></input>
-//       </form>
-//     </>
-//   );
-// }
