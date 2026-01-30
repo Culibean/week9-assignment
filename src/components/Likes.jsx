@@ -25,7 +25,7 @@ export default function Likes({ postId, likesCount }) {
   return (
     <>
       <form action={likePost}>
-        <button type="submit">✈️ ({likesCount})</button>
+        <button type="submit">✈️ {likesCount}</button>
       </form>
     </>
   );

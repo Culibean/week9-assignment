@@ -47,6 +47,8 @@ export default async function Posts() {
       <h1>SkyLog Feed</h1>
 
       <form action={createPost}>
+        <label>Where have you been?</label>
+        {""}
         <textarea
           name="trip_description"
           placeholder="Share your trip here..."
@@ -55,7 +57,7 @@ export default async function Posts() {
 
         <div>
           <label>
-            From
+            From: {""}
             <input
               type="text"
               name="departure_airport"
@@ -67,7 +69,7 @@ export default async function Posts() {
 
         <div>
           <label>
-            To
+            To: {""}
             <input
               type="text"
               name="arrival_airport"
@@ -79,7 +81,7 @@ export default async function Posts() {
 
         <div>
           <label>
-            Unsplash Image URL
+            Unsplash Image URL: {""}
             <input
               type="url"
               name="image_url"
@@ -90,7 +92,7 @@ export default async function Posts() {
 
         <div>
           <label>
-            Image description
+            Image description: {""}
             <input
               type="text"
               name="image_alt"

@@ -16,9 +16,6 @@ export default function PostCard({ post }) {
         />
         <div>
           <p>{post.username}</p>
-          <p>
-            {post.first_name} {post.last_name}
-          </p>
         </div>
 
         <p>{post.trip_description}</p>
