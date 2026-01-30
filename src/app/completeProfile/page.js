@@ -40,8 +40,8 @@ export default function CompleteProfile() {
         formData.bio,
       ],
     );
-    revalidatePath("/profile");
-    redirect("/profile");
+    revalidatePath(`/profile/${formData.username}`);
+    redirect(`/profile/${formData.username}`);
   }
 
   return (
@@ -60,7 +60,6 @@ export default function CompleteProfile() {
 
           <label htmlFor="bio"> About you</label>
           <textarea
-            typeof="text"
             name="bio"
             placeholder="Share a bit about yourself..."
             id="bio"

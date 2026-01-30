@@ -24,7 +24,10 @@ export default function NavBar() {
             <button className={NavBarStyles.button}>Sign Out</button>
           </SignOutButton>
         </SignedIn>
-        <a className={NavBarStyles.button} href="http://localhost:3000/posts">
+        <a
+          className={NavBarStyles.button}
+          href="skylog-social.vercel.app/posts"
+        >
           SkyStories
         </a>
       </nav>
