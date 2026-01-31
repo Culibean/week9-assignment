@@ -11,8 +11,8 @@ export default function Header() {
           className={HeaderStyles.image}
           src={logo}
           alt={"logo of Skylog"}
-          width={100}
-          height={100}
+          width={50}
+          height={50}
         />
         <h1 className={HeaderStyles.h1}>SkyLog</h1>
         <NavBar />

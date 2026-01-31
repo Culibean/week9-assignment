@@ -5,8 +5,10 @@ import { db } from "@/utils/dbConnection";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { auth } from "@clerk/nextjs/server";
+import formStyles from "@/components/Form.module.css";
 
 export default async function Posts() {
+  await new Promise((resolve) => setTimeout(resolve, 3000)); //added in for spinner to show up long enough
   const { userId } = await auth();
 
   if (!userId) {
@@ -44,9 +46,9 @@ export default async function Posts() {
 
   return (
     <>
-      <h1>SkyLog Feed</h1>
+      <h1 className={formStyles.header}>SkyLog Feed</h1>
 
-      <form action={createPost}>
+      <form className={formStyles.tripform} action={createPost}>
         <label>Where have you been?</label>
         {""}
         <textarea
@@ -57,11 +59,11 @@ export default async function Posts() {
 
         <div>
           <label>
-            From: {""}
+            ✈️ {""}
             <input
               type="text"
               name="departure_airport"
-              placeholder="e.g. LHR"
+              placeholder="From"
               required
             />
           </label>
@@ -69,11 +71,11 @@ export default async function Posts() {
 
         <div>
           <label>
-            To: {""}
+            🛬 {""}
             <input
               type="text"
               name="arrival_airport"
-              placeholder="e.g JFK"
+              placeholder="To"
               required
             />
           </label>
@@ -101,7 +103,9 @@ export default async function Posts() {
           </label>
         </div>
 
-        <button type="submit">SkyLog it</button>
+        <button className={formStyles.button} type="submit">
+          SkyLog it
+        </button>
       </form>
 
       {posts.map((post) => (

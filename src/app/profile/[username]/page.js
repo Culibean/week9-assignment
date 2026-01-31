@@ -8,6 +8,7 @@ import { db } from "@/utils/dbConnection";
 import Image from "next/image";
 import PostCard from "@/components/Postcard";
 import { notFound } from "next/navigation";
+import profileStyles from "@/components/ProfilePage.module.css";
 
 export default async function ProfilePage({ params }) {
   const { username } = await params;
@@ -35,16 +36,26 @@ export default async function ProfilePage({ params }) {
   //db queries to GET data from the tables
   return (
     <>
-      <h1>{profile.username}s Profile</h1>
       <div>
-        <Image
-          src={profile.avatar_url}
-          alt={`${profile.username}s profile picture`}
-          width={60}
-          height={60}
-        />
+        <h1 className={profileStyles.header}>{profile.username}s Profile</h1>
+        <div className={profileStyles.topline}>
+          <div>
+            <Image
+              src={profile.avatar_url}
+              alt={`${profile.username}s profile picture`}
+              width={60}
+              height={60}
+              className={profileStyles.image}
+            />
+          </div>
+          <div className={profileStyles.profile}>
+            <h2>Favourite airplane: {profile.favourite_airplane}</h2>
+            <h2>Favourite airport: {profile.favourite_airport}</h2>
+            <h2>Fun Fact: {profile.bio}</h2>
+          </div>
+        </div>
       </div>
-      <h2>{profile.username} Posts</h2>
+      <h2 className={profileStyles.h2}>{profile.username} Posts</h2>
 
       {posts.length === 0 && <p>No posts yet</p>}
 

@@ -1,17 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
-import { Provider } from "@/components/ui/provider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const orbitron = Orbitron({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "500",
 });
 
 export const metadata = {
@@ -23,12 +17,10 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html suppressHydrationWarning lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
+        <body className={orbitron.className}>
           <Header />
           <header className="flex justify-end items-center p-4 gap-4 h-16"></header>
-          <Provider>{children}</Provider>
+          {children}
         </body>
       </html>
     </ClerkProvider>

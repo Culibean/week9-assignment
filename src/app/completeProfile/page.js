@@ -8,6 +8,7 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import { db } from "@/utils/dbConnection";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import Styles from "@/components/completeProfile.module.css";
 
 export default function CompleteProfile() {
   async function handleSubmit(formValues) {
@@ -47,25 +48,27 @@ export default function CompleteProfile() {
   return (
     <>
       <div>
-        <form action={handleSubmit}>
+        <form className={Styles.form} action={handleSubmit}>
           <label htmlFor="favourite_airplane">
-            Your favourite plane
+            Your favourite plane: {""}
             <input type="text" name="favourite_airplane" required></input>
           </label>
 
           <label htmlFor="favourite_airport">
-            Your favourite Airport
+            Your favourite Airport: {""}
             <input type="text" name="favourite_airport" required></input>
           </label>
 
-          <label htmlFor="bio"> About you</label>
+          <label htmlFor="bio"> About you: {""}</label>
           <textarea
             name="bio"
             placeholder="Share a bit about yourself..."
             id="bio"
             required
           />
-          <button type="submit">Finish Profile Setup</button>
+          <button className={Styles.button} type="submit">
+            Finish Profile Setup
+          </button>
         </form>
       </div>
     </>

@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: linear-gradient(90deg, #aed4eb, #3694c7);
-  padding: 1.5rem 2rem;
+  background: linear-gradient(90deg, #ffffff, #deeaf0);
+  padding: 0.2rem;
   gap: 1rem;
-  margin-bottom: 10px;
   opacity: 80%;
+  padding: 0.8rem;
 }
 
 .image {
   border: solid 2px #aed4eb;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0 10px 10px #3694c7;
   transition:
     transform 0.25s ease,
@@ -19,9 +19,9 @@
 }
 
 .h1 {
-  font-weight: 900;
-  color: white;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
   letter-spacing: 1px;
-  font-size: 3rem;
-  margin-left: 3rem;
+  font-size: 1.5rem;
+  margin-left: 1rem;
 }

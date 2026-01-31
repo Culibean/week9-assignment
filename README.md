@@ -27,4 +27,5 @@ What went really well and what could have gone better?
 
 ## Resources:
 
-https://v2.chakra-ui.com/getting-started/nextjs-app-guide
+Loading Delay: https://www.reddit.com/r/learnjavascript/comments/1f4zunn/await_new_promiseresolve_settimeoutresolve_1000/
+Redirect Clerk: https://clerk.com/blog/nextjs-authentication

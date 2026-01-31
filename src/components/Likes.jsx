@@ -2,6 +2,7 @@ import { db } from "@/utils/dbConnection";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
+import rectionStyles from "@/components/Reactions.module.css";
 
 export default function Likes({ postId, likesCount }) {
   async function likePost() {

@@ -11,16 +11,20 @@ import { neobrutalism } from "@clerk/themes";
 export default function SignUpPage() {
   return (
     <>
-      <h1>Sign Up to become part of SkyLog</h1>
-      <SignUp
-        appearance={{
-          theme: [neobrutalism],
-          variables: {
-            colorPrimary: "#47a6ff",
-            colorBackground: "#aed4eb",
-          },
-        }}
-      />
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6 p-4">
+        <h1 className="text-2xl font-semibold">
+          Sign Up to become part of SkyLog
+        </h1>
+        <SignUp
+          appearance={{
+            theme: [neobrutalism],
+            variables: {
+              colorPrimary: "#47a6ff",
+              colorBackground: "#aed4eb",
+            },
+          }}
+        />
+      </div>
     </>
   );
 }
