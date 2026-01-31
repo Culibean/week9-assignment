@@ -34,13 +34,14 @@ export default async function NavBar() {
           </SignUpButton>
         </SignedOut>
         <SignedIn>
+          <a className={NavBarStyles.button} href={"/posts"}>
+            SkyStories
+          </a>
           <SignOutButton>
             <button className={NavBarStyles.button}>Sign Out</button>
           </SignOutButton>
         </SignedIn>
-        <a className={NavBarStyles.button} href="/posts">
-          SkyStories
-        </a>
+
         {username && (
           <a className={NavBarStyles.button} href={`/profile/${username}`}>
             Profile

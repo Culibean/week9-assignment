@@ -12,23 +12,45 @@ import { notFound } from "next/navigation";
 export default async function ProfilePage({ params }) {
   const { username } = await params;
 
-  const query = await db.query(`SELECT * FROM profiles WHERE username = $1`, [
-    username,
-  ]);
-  console.log(query);
+  const profileQuery = await db.query(
+    `SELECT * FROM profiles WHERE username = $1`,
+    [username],
+  );
+  console.log(profileQuery);
 
-  const data = query.rows[0];
-  console.log(data);
-
-  if (query.rows.length === 0) {
+  if (profileQuery.rows.length === 0) {
     notFound();
   }
+
+  const profile = profileQuery.rows[0];
+  console.log(profile);
+
+  const postQuery = await db.query(
+    `SELECT posts.id, posts.trip_description, posts.departure_airport, posts.arrival_airport, posts.image_url, posts.image_alt, posts.created_at, profiles.username, profiles.avatar_url, (SELECT COUNT(*) FROM likes WHERE likes.post_id = posts.id) AS likes_count, (SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id) AS comment_count FROM posts JOIN profiles ON posts.clerk_id=profiles.clerk_id WHERE posts.clerk_id =$1 ORDER BY posts.created_at DESC`,
+    [profile.clerk_id],
+  );
+  console.log(postQuery);
+  const posts = postQuery.rows;
 
   //db queries to GET data from the tables
   return (
     <>
-      <h1>User&apos;s info</h1>
-      <h1>User&apos;s posts</h1>
+      <h1>{profile.username}s Profile</h1>
+      <div>
+        <Image
+          src={profile.avatar_url}
+          alt={`${profile.username}s profile picture`}
+          width={60}
+          height={60}
+        />
+      </div>
+      <h2>{profile.username} Posts</h2>
+
+      {posts.length === 0 && <p>No posts yet</p>}
+
+      {posts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
     </>
   );
 }
